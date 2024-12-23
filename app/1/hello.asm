@@ -60,6 +60,7 @@ _start:
     ; === Exit the process (exit(0)) ===
     mov rax, 60     ; syscall number: sys_exit
     ; 60	common	exit			sys_exit https://github.com/torvalds/linux/blob/master/arch/x86/entry/syscalls/syscall_64.tbl
+    ; https://man7.org/linux/man-pages/man2/exit.2.html
     mov rdi, 0      ; exit code
     syscall
 
