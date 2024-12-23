@@ -48,14 +48,17 @@ _start:
     ; rdx is a 64-bit general-purpose register, I/O pointer, 3rd argument, https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html Intel 64 and IA-32 Architectures Software Developer's Manual Volume 1: Basic Architecture, 3 Basic execution environment, 3.4 Basic program execution registers, 3.4.1 General-Purpose Registers,
     syscall
     ; syscall is an instruction that makes a system call https://man7.org/linux/man-pages/man2/syscall.2.html
+
     ; the instruction used to transition to kernel mode
     ; Arch/ABI    Instruction           System  Ret  Ret  Error    Notes
     ;                                   call #  val  val2
     ; x86-64      syscall               rax     rax  rdx  -        5
+
     ; the registers used to pass the system call arguments.
     ; Arch          arg1  arg2  arg3  arg4  arg5  arg6  arg7  Notes
     ; x86-64        rdi   rsi   rdx   r10   r8    r9    -
-    ; Also, Intel 64 and IA-32 Architectures Software Developer's Manual Combined Volumes 2A, 2B, 2C, and  2D: Instruction Set Reference, A- Z
+
+    ; Also, Intel 64 and IA-32 Architectures Software Developer's Manual Combined Volumes 2A, 2B, 2C, and  2D: Instruction Set Reference, A- Z https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html
 
     ; === Exit the process (exit(0)) ===
     mov rax, 60     ; syscall number: sys_exit
